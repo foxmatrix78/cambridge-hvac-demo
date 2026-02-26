@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  PREMIUM HVAC TEMPLATE — Easy to reskin in < 10 min     ║
+  ║  Change the vars below: COMPANY_NAME, PHONE, CITY, etc. ║
+  ╚══════════════════════════════════════════════════════════╝
+  -->
+  <title>Cambridge HVAC Pro | 24/7 Furnace & AC Repair | Licensed & Insured</title>
+  <meta name="description" content="Cambridge's most trusted HVAC company. Furnace repair, AC installation, heat pumps. Licensed, insured, family-owned. 24/7 emergency service. Call (226) 555-0182." />
+
+  <!-- Preconnect for speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       A) GLOBAL CSS VARIABLES — Edit these to reskin site
+       ═══════════════════════════════════════════════════════ */
+    :root {
+      /* ── Brand (swap these per client) ── */
+      --brand-primary:   #C1121F;   /* Deep Ontario Red */
+      --brand-dark:      #8B0000;   /* Hover / dark red */
+      --brand-light:     #FFE5E7;   /* Light red tint */
+
+      /* ── Neutral Palette ── */
+      --ink-900:  #0D0D0D;
+      --ink-800:  #1A1A1A;
+      --ink-700:  #2D2D2D;
+      --ink-500:  #5A5A5A;
+      --ink-300:  #9A9A9A;
+      --ink-100:  #EBEBEB;
+      --ink-050:  #F7F7F7;
+      --white:    #FFFFFF;
+
+      /* ── Accent ── */
+      --gold:     #F4A200;
+      --gold-lt:  #FEF3DC;
+      --green:    #1A7A4A;
+      --green-lt: #E6F5EE;
+
+      /* ── Typography ── */
+      --font-display: 'Manrope', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      /* ── Type Scale ── */
+      --text-xs:   0.75rem;
+      --text-sm:   0.875rem;
+      --text-base: 1rem;
+      --text-lg:   1.125rem;
+      --text-xl:   1.25rem;
+      --text-2xl:  1.5rem;
+      --text-3xl:  1.875rem;
+      --text-4xl:  2.25rem;
+      --text-5xl:  3rem;
+
+      /* ── Spacing Scale ── */
+      --space-1:  4px;
+      --space-2:  8px;
+      --space-3:  12px;
+      --space-4:  16px;
+      --space-5:  20px;
+      --space-6:  24px;
+      --space-8:  32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+
+      /* ── Radius ── */
+      --radius-sm:   6px;
+      --radius-md:   10px;
+      --radius-lg:   16px;
+      --radius-xl:   24px;
+      --radius-full: 9999px;
+
+      /* ── Shadow System ── */
+      --shadow-sm:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md:  0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+      --shadow-lg:  0 12px 40px rgba(0,0,0,0.13), 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-xl:  0 24px 64px rgba(0,0,0,0.16);
+      --shadow-red: 0 8px 24px rgba(193,18,31,0.30);
+
+      /* ── Transitions ── */
+      --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in:    cubic-bezier(0.64, 0, 0.78, 0);
+      --dur-fast:   150ms;
+      --dur-base:   250ms;
+      --dur-slow:   400ms;
+
+      /* ── Layout ── */
+      --max-width: 1200px;
+      --section-pad: var(--space-20) 5%;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--ink-800);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       H) EMERGENCY TOP BANNER
+       ═══════════════════════════════════════════════════════ */
+    .emergency-banner {
+      background: var(--brand-primary);
+      color: var(--white);
+      text-align: center;
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      position: relative;
+      z-index: 200;
+    }
+    .emergency-banner a {
+      color: var(--white);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .emergency-banner .pulse {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--white);
+      border-radius: 50%;
+      margin-right: var(--space-2);
+      animation: pulse-dot 1.5s ease infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════════════════ */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ink-900);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: box-shadow var(--dur-base) var(--ease-out);
+    }
+    header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.5); }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; max-width: var(--max-width); margin: 0 auto; padding: 0 5%;
+    }
+    .logo { display: flex; align-items: center; gap: var(--space-3); }
+    .logo-mark {
+      background: var(--brand-primary);
+      width: 40px; height: 40px; border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-red);
+    }
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .logo-name em { color: var(--brand-primary); font-style: normal; }
+    .logo-sub { font-size: var(--text-xs); color: var(--ink-300); font-weight: 500; }
+
+    .header-nav {
+      display: flex; align-items: center; gap: var(--space-8);
+    }
+    .header-nav a {
+      color: var(--ink-300); font-size: var(--text-sm); font-weight: 500;
+      transition: color var(--dur-fast);
+    }
+    .header-nav a:hover { color: var(--white); }
+    .header-right { display: flex; align-items: center; gap: var(--space-4); }
+    .header-phone {
+      color: var(--white); font-weight: 700; font-size: var(--text-base);
+      display: flex; align-items: center; gap: var(--space-2);
+      transition: color var(--dur-fast);
+    }
+    .header-phone:hover { color: var(--brand-primary); }
+    .header-phone .phone-icon {
+      background: rgba(193,18,31,0.2); border-radius: var(--radius-sm);
+      width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BUTTON SYSTEM
+       ═══════════════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: var(--space-2);
+      padding: 13px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 700;
+      transition: all var(--dur-base) var(--ease-out);
+      white-space: nowrap;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0);
+      transition: background var(--dur-fast);
+    }
+    .btn:hover::after { background: rgba(255,255,255,0.08); }
+    .btn:focus-visible {
+      outline: 3px solid var(--brand-primary);
+      outline-offset: 3px;
+    }
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: var(--brand-primary);
+      color: var(--white);
+      box-shadow: var(--shadow-red);
+    }
+    .btn-primary:hover {
+      background: var(--brand-dark);
+      box-shadow: 0 12px 32px rgba(193,18,31,0.40);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .btn-secondary:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--ink-800);
+      border: 2px solid var(--ink-100);
+    }
+    .btn-outline-dark:hover {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
+    }
+
+    .btn-lg { padding: 16px 36px; font-size: var(--text-lg); border-radius: var(--radius-lg); }
+    .btn-sm { padding: 9px 18px; font-size: var(--text-sm); }
+    .btn-gold {
+      background: var(--gold); color: var(--ink-900);
+      box-shadow: 0 4px 16px rgba(244,162,0,0.35);
+    }
+    .btn-gold:hover {
+      background: #d98f00;
+      box-shadow: 0 8px 24px rgba(244,162,0,0.45);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       B) HERO SECTION
+       ═══════════════════════════════════════════════════════ */
+    .hero {
+      background: var(--ink-900);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(193,18,31,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 80% at 90% 100%, rgba(193,18,31,0.08) 0%, transparent 60%);
+      padding: var(--space-20) 0;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: var(--max-width); margin: 0 auto; padding: 0 5%;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-16);
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(193,18,31,0.15);
+      border: 1px solid rgba(193,18,31,0.35);
+      color: #FF7B84;
+      padding: var(--space-1) var(--space-4) var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-5);
+    }
+    .hero-eyebrow .dot { width: 6px; height: 6px; background: #FF7B84; border-radius: 50%; animation: pulse-dot 1.5s ease infinite; }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-5);
+    }
+    .hero h1 .highlight {
+      color: var(--brand-primary);
+      position: relative;
+    }
+    .hero-sub {
+      font-size: var(--text-lg);
+      color: var(--ink-300);
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+      max-width: 520px;
+    }
+
+    .hero-ctas {
+      display: flex; align-items: center; gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-10);
+    }
+
+    .hero-trust-row {
+      display: flex; flex-wrap: wrap; gap: var(--space-5);
+      padding-top: var(--space-8);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-trust-item {
+      display: flex; align-items: center; gap: var(--space-2);
+      color: var(--ink-300);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    .hero-trust-item .check {
+      width: 18px; height: 18px; background: var(--green-lt);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--green); flex-shrink: 0;
+    }
+
+    /* Hero right — stats card */
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      backdrop-filter: blur(8px);
+    }
+    .hero-card-header {
+      display: flex; align-items: center; gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .rating-badge {
+      background: var(--gold);
+      color: var(--ink-900);
+      font-weight: 800;
+      font-size: var(--text-lg);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+    }
+    .rating-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
+    .rating-count { color: var(--ink-300); font-size: var(--text-sm); margin-top: 2px; }
+
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-6); }
+    .hero-stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      text-align: center;
+    }
+    .stat-val {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-val .unit { font-size: var(--text-lg); color: var(--brand-primary); }
+    .stat-label { color: var(--ink-300); font-size: var(--text-xs); font-weight: 500; margin-top: var(--space-1); }
+
+    .hero-availability {
+      background: rgba(26,122,74,0.15);
+      border: 1px solid rgba(26,122,74,0.3);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      display: flex; align-items: center; gap: var(--space-3);
+    }
+    .avail-dot {
+      width: 10px; height: 10px; background: #2DC653; border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(45,198,83,0.25);
+      animation: pulse-avail 2s ease infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-avail {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(45,198,83,0.25); }
+      50%       { box-shadow: 0 0 0 6px rgba(45,198,83,0.10); }
+    }
+    .avail-text { color: var(--white); font-size: var(--text-sm); font-weight: 600; }
+    .avail-text span { color: var(--ink-300); font-weight: 400; }
+
+    /* ── Trust bar ── */
+    .trust-bar {
+      background: var(--ink-800);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: var(--space-4) 5%;
+      overflow: hidden;
+    }
+    .trust-bar-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: var(--space-8); flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: var(--space-2);
+      color: var(--ink-300);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .trust-item .ico { font-size: 1rem; }
+    .trust-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.1); }
+
+    /* ═══════════════════════════════════════════════════════
+       SECTION UTILITIES
+       ═══════════════════════════════════════════════════════ */
+    .section { padding: var(--space-20) 0; }
+    .section-sm { padding: var(--space-12) 0; }
+    .section-bg-light { background: var(--ink-050); }
+    .section-bg-dark  { background: var(--ink-900); }
+    .section-bg-red   { background: var(--brand-primary); }
+
+    .section-header { text-align: center; margin-bottom: var(--space-12); }
+    .section-label {
+      display: inline-block;
+      color: var(--brand-primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--ink-900);
+      margin-bottom: var(--space-4);
+    }
+    .section-title.light { color: var(--white); }
+    .section-sub {
+      font-size: var(--text-lg);
+      color: var(--ink-500);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .section-sub.light { color: rgba(255,255,255,0.65); }
+
+    /* ═══════════════════════════════════════════════════════
+       SEASONAL PROMO BANNER
+       ═══════════════════════════════════════════════════════ */
+    .promo-banner {
+      background: linear-gradient(135deg, var(--gold) 0%, #d98f00 100%);
+      padding: var(--space-6) 5%;
+    }
+    .promo-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-4); flex-wrap: wrap;
+    }
+    .promo-content { display: flex; align-items: center; gap: var(--space-4); }
+    .promo-icon { font-size: 2rem; }
+    .promo-text strong { font-size: var(--text-lg); font-weight: 800; color: var(--ink-900); display: block; }
+    .promo-text span { font-size: var(--text-sm); color: var(--ink-700); }
+
+    /* ═══════════════════════════════════════════════════════
+       C) SERVICES SECTION
+       ═══════════════════════════════════════════════════════ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--ink-100);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-6);
+      transition: transform var(--dur-slow) var(--ease-out),
+                  box-shadow var(--dur-slow) var(--ease-out),
+                  border-color var(--dur-base);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--brand-primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--dur-slow) var(--ease-out);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon-wrap {
+      width: 56px; height: 56px;
+      background: var(--brand-light);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: var(--space-5);
+      transition: background var(--dur-base), transform var(--dur-slow) var(--ease-out);
+    }
+    .service-card:hover .service-icon-wrap {
+      background: var(--brand-primary);
+      transform: scale(1.05) rotate(-3deg);
+    }
+    .service-card h3 {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      color: var(--ink-900);
+    }
+    .service-card p {
+      color: var(--ink-500);
+      font-size: var(--text-sm);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
+    }
+    .service-link {
+      color: var(--brand-primary);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      display: inline-flex; align-items: center; gap: var(--space-1);
+      transition: gap var(--dur-base) var(--ease-out);
+    }
+    .service-card:hover .service-link { gap: var(--space-3); }
+
+    /* ═══════════════════════════════════════════════════════
+       GUARANTEE SECTION
+       ═══════════════════════════════════════════════════════ */
+    .guarantee {
+      background: var(--ink-900);
+      padding: var(--space-16) 5%;
+    }
+    .guarantee-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: grid; grid-template-columns: auto 1fr; gap: var(--space-12);
+      align-items: center;
+    }
+    .guarantee-badge {
+      text-align: center; flex-shrink: 0;
+    }
+    .guarantee-circle {
+      width: 160px; height: 160px;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: rgba(244,162,0,0.07);
+      padding: var(--space-4);
+    }
+    .guarantee-circle .g-icon { font-size: 2.5rem; margin-bottom: var(--space-2); }
+    .guarantee-circle .g-title { color: var(--gold); font-family: var(--font-display); font-weight: 800; font-size: var(--text-sm); text-align: center; line-height: 1.2; }
+    .guarantee-points { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+    .g-point { display: flex; gap: var(--space-4); }
+    .g-point-icon {
+      background: rgba(193,18,31,0.15); min-width: 42px; height: 42px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .g-point h4 { color: var(--white); font-weight: 700; font-size: var(--text-base); margin-bottom: 2px; }
+    .g-point p { color: var(--ink-300); font-size: var(--text-sm); line-height: 1.5; }
+
+    /* ═══════════════════════════════════════════════════════
+       CERTIFICATIONS
+       ═══════════════════════════════════════════════════════ */
+    .certs { padding: var(--space-12) 5%; }
+    .certs-inner { max-width: var(--max-width); margin: 0 auto; }
+    .certs-label { text-align: center; color: var(--ink-300); font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-6); }
+    .certs-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: var(--space-8); flex-wrap: wrap;
+    }
+    .cert-badge {
+      background: var(--ink-050);
+      border: 2px solid var(--ink-100);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-6);
+      display: flex; align-items: center; gap: var(--space-3);
+      font-weight: 700; font-size: var(--text-sm); color: var(--ink-700);
+      transition: border-color var(--dur-base), box-shadow var(--dur-base);
+    }
+    .cert-badge:hover { border-color: var(--brand-primary); box-shadow: var(--shadow-md); }
+    .cert-badge .cert-ico { font-size: 1.4rem; }
+
+    /* ═══════════════════════════════════════════════════════
+       PROCESS SECTION
+       ═══════════════════════════════════════════════════════ */
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6); position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 28px; left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-light));
+    }
+    .process-step {
+      text-align: center; position: relative;
+    }
+    .step-circle {
+      width: 56px; height: 56px;
+      background: var(--white);
+      border: 3px solid var(--brand-primary);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--brand-primary);
+      font-size: var(--text-xl);
+      margin: 0 auto var(--space-5);
+      position: relative; z-index: 1;
+      box-shadow: var(--shadow-sm);
+    }
+    .process-step h4 { font-weight: 700; font-size: var(--text-base); margin-bottom: var(--space-2); }
+    .process-step p { color: var(--ink-500); font-size: var(--text-sm); line-height: 1.6; }
+
+    /* ═══════════════════════════════════════════════════════
+       FINANCING SECTION
+       ═══════════════════════════════════════════════════════ */
+    .financing {
+      background: linear-gradient(135deg, var(--ink-900) 0%, #1a0a0b 100%);
+      padding: var(--space-16) 5%;
+    }
+    .financing-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12);
+      align-items: center;
+    }
+    .financing-content .section-label { color: var(--gold); }
+    .financing-content h2 { color: var(--white); font-family: var(--font-display); font-size: clamp(1.7rem,3.5vw,2.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: var(--space-4); }
+    .financing-content p { color: rgba(255,255,255,0.6); font-size: var(--text-base); line-height: 1.7; margin-bottom: var(--space-6); }
+    .financing-options { display: flex; flex-direction: column; gap: var(--space-4); }
+    .fin-option {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      display: flex; align-items: center; gap: var(--space-4);
+    }
+    .fin-option-icon { font-size: 1.5rem; }
+    .fin-option h4 { color: var(--white); font-weight: 700; font-size: var(--text-base); }
+    .fin-option p { color: rgba(255,255,255,0.5); font-size: var(--text-sm); }
+
+    /* ═══════════════════════════════════════════════════════
+       D) REVIEWS SECTION
+       ═══════════════════════════════════════════════════════ */
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--ink-100);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-6);
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--dur-slow) var(--ease-out), box-shadow var(--dur-slow) var(--ease-out);
+      position: relative;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .review-card::before {
+      content: '"';
+      position: absolute; top: var(--space-4); right: var(--space-6);
+      font-size: 5rem; line-height: 1;
+      color: var(--brand-light);
+      font-family: Georgia, serif;
+      font-weight: 900;
+    }
+    .review-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: var(--space-4); }
+    .review-text {
+      color: var(--ink-700); font-size: var(--text-sm); line-height: 1.75;
+      margin-bottom: var(--space-5);
+      font-style: italic;
+    }
+    .reviewer {
+      display: flex; align-items: center; gap: var(--space-3);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--ink-100);
+    }
+    .reviewer-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-primary), #FF6B6B);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-weight: 800; font-size: var(--text-base);
+      flex-shrink: 0;
+    }
+    .reviewer-name { font-weight: 700; font-size: var(--text-sm); color: var(--ink-900); }
+    .reviewer-meta { color: var(--ink-300); font-size: var(--text-xs); margin-top: 2px; }
+
+    .reviews-aggregate {
+      text-align: center; margin-bottom: var(--space-10);
+      display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
+    }
+    .aggregate-score {
+      font-family: var(--font-display);
+      font-size: 3.5rem; font-weight: 900; color: var(--ink-900); line-height: 1;
+    }
+    .aggregate-stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 3px; }
+    .aggregate-count { color: var(--ink-300); font-size: var(--text-sm); }
+
+    /* ═══════════════════════════════════════════════════════
+       LEAD FORM SECTION
+       ═══════════════════════════════════════════════════════ */
+    .lead-section {
+      background: var(--ink-900);
+      padding: var(--space-20) 5%;
+    }
+    .lead-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16);
+      align-items: start;
+    }
+    .lead-left h2 {
+      font-family: var(--font-display); font-size: clamp(1.8rem,3.5vw,2.6rem);
+      font-weight: 800; color: var(--white); letter-spacing: -0.02em;
+      margin-bottom: var(--space-4); margin-top: var(--space-3);
+    }
+    .lead-left p { color: rgba(255,255,255,0.55); font-size: var(--text-base); line-height: 1.7; margin-bottom: var(--space-8); }
+    .lead-contacts { display: flex; flex-direction: column; gap: var(--space-4); }
+    .lead-contact {
+      display: flex; align-items: center; gap: var(--space-4);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      transition: border-color var(--dur-base), background var(--dur-base);
+    }
+    .lead-contact:hover { border-color: rgba(193,18,31,0.4); background: rgba(193,18,31,0.05); }
+    .lead-contact-icon {
+      width: 44px; height: 44px; background: rgba(193,18,31,0.2);
+      border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .lead-contact strong { color: var(--white); display: block; font-size: var(--text-base); font-weight: 700; }
+    .lead-contact span { color: var(--ink-300); font-size: var(--text-sm); }
+
+    /* Form */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      box-shadow: var(--shadow-xl);
+    }
+    .form-card-header { margin-bottom: var(--space-6); }
+    .form-card-header h3 { font-size: var(--text-2xl); font-weight: 800; color: var(--ink-900); margin-bottom: 4px; }
+    .form-card-header p { color: var(--ink-500); font-size: var(--text-sm); }
+    .form-response-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: var(--green-lt); color: var(--green);
+      border-radius: var(--radius-full); padding: 4px 10px;
+      font-size: var(--text-xs); font-weight: 700;
+      margin-bottom: var(--space-4);
+    }
+
+    .form-group { margin-bottom: var(--space-4); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    label {
+      display: block; font-size: var(--text-sm); font-weight: 600;
+      color: var(--ink-700); margin-bottom: var(--space-2);
+    }
+    input, select, textarea {
+      width: 100%; padding: 12px var(--space-4);
+      border: 2px solid var(--ink-100);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body); font-size: var(--text-base);
+      color: var(--ink-900);
+      background: var(--white);
+      transition: border-color var(--dur-base), box-shadow var(--dur-base);
+      -webkit-appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 4px rgba(193,18,31,0.08);
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    .form-submit { width: 100%; margin-top: var(--space-2); }
+    .form-disclaimer { text-align: center; font-size: var(--text-xs); color: var(--ink-300); margin-top: var(--space-3); }
+
+    /* ═══════════════════════════════════════════════════════
+       E) FAQ ACCORDION
+       ═══════════════════════════════════════════════════════ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      border: 1px solid var(--ink-100);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-3);
+      overflow: hidden;
+      transition: box-shadow var(--dur-base);
+    }
+    .faq-item.open { box-shadow: var(--shadow-md); border-color: rgba(193,18,31,0.2); }
+    .faq-question {
+      width: 100%; text-align: left;
+      padding: var(--space-5) var(--space-6);
+      display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+      font-size: var(--text-base); font-weight: 700; color: var(--ink-900);
+      background: var(--white);
+      cursor: pointer;
+      transition: background var(--dur-fast);
+    }
+    .faq-question:hover { background: var(--ink-050); }
+    .faq-item.open .faq-question { background: var(--brand-light); color: var(--brand-primary); }
+    .faq-chevron {
+      width: 28px; height: 28px; border-radius: var(--radius-sm);
+      background: var(--ink-050); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.75rem; color: var(--ink-500);
+      transition: transform var(--dur-slow) var(--ease-out), background var(--dur-base);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--brand-primary); color: var(--white); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height var(--dur-slow) var(--ease-out);
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 var(--space-6) var(--space-5);
+      color: var(--ink-500); font-size: var(--text-base); line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       SERVICE AREA SECTION
+       ═══════════════════════════════════════════════════════ */
+    .area-grid {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: var(--space-3); margin-top: var(--space-8);
+    }
+    .area-chip {
+      background: var(--white); border: 1.5px solid var(--ink-100);
+      border-radius: var(--radius-full); padding: var(--space-2) var(--space-5);
+      font-size: var(--text-sm); font-weight: 600; color: var(--ink-700);
+      transition: all var(--dur-base);
+    }
+    .area-chip:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
+    .area-chip.primary {
+      background: var(--brand-light); border-color: rgba(193,18,31,0.3);
+      color: var(--brand-primary); font-weight: 700;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ */
+    footer { background: var(--ink-900); padding: var(--space-16) 5% var(--space-8); }
+    .footer-grid {
+      max-width: var(--max-width); margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-10);
+      padding-bottom: var(--space-10);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: var(--space-8);
+    }
+    .footer-brand p { color: var(--ink-300); font-size: var(--text-sm); line-height: 1.7; margin-top: var(--space-4); max-width: 280px; }
+    .footer-col h4 { color: var(--white); font-weight: 700; font-size: var(--text-sm); margin-bottom: var(--space-5); letter-spacing: 0.03em; }
+    .footer-col ul { display: flex; flex-direction: column; gap: var(--space-3); }
+    .footer-col ul a { color: var(--ink-300); font-size: var(--text-sm); transition: color var(--dur-fast); }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);
+    }
+    .footer-copy { color: var(--ink-300); font-size: var(--text-xs); }
+    .footer-links { display: flex; gap: var(--space-6); }
+    .footer-links a { color: var(--ink-300); font-size: var(--text-xs); transition: color var(--dur-fast); }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ═══════════════════════════════════════════════════════
+       G) STICKY MOBILE CTA BAR
+       ═══════════════════════════════════════════════════════ */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
+      background: var(--ink-900);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: var(--space-3) var(--space-4);
+      gap: var(--space-3);
+    }
+    .mobile-cta-bar a { flex: 1; text-align: center; }
+
+    /* ═══════════════════════════════════════════════════════
+       F) SCROLL ANIMATION BASE CLASSES
+       ═══════════════════════════════════════════════════════ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up.delay-1 { transition-delay: 100ms; }
+    .fade-up.delay-2 { transition-delay: 200ms; }
+    .fade-up.delay-3 { transition-delay: 300ms; }
+    .fade-up.delay-4 { transition-delay: 400ms; }
+    .fade-up.delay-5 { transition-delay: 500ms; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .pulse { animation: none; }
+      .btn { transition: none; }
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .hero h1 { font-size: 2.1rem; }
+      .hero-sub { font-size: var(--text-base); }
+      .guarantee-inner { grid-template-columns: 1fr; }
+      .guarantee-badge { display: none; }
+      .guarantee-points { grid-template-columns: 1fr; }
+      .financing-inner { grid-template-columns: 1fr; }
+      .lead-inner { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .header-nav { display: none; }
+      .header-right .btn { display: none; }
+      .mobile-cta-bar { display: flex; }
+      body { padding-bottom: 76px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .trust-bar-inner { flex-direction: column; gap: var(--space-3); }
+      .trust-divider { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       H) EMERGENCY BANNER
+       ══════════════════════════════════════ -->
+  <div class="emergency-banner" role="alert">
+    <span class="pulse" aria-hidden="true"></span>
+    <strong>24/7 Emergency HVAC Service:</strong>&nbsp;
+    Furnace or AC failure? We're dispatching techs right now.
+    <a href="tel:2265550182">&nbsp;Call (226) 555-0182 →</a>
+  </div>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Cambridge HVAC Pro Home">
+        <div class="logo-mark" aria-hidden="true">🔥</div>
+        <div>
+          <div class="logo-name">Cambridge <em>HVAC</em> Pro</div>
+          <div class="logo-sub">Licensed & Insured · Est. 2008</div>
+        </div>
+      </a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-right">
+        <a href="tel:2265550182" class="header-phone" aria-label="Call us">
+          <span class="phone-icon" aria-hidden="true">📞</span>
+          (226) 555-0182
+        </a>
+        <a href="#quote" class="btn btn-primary btn-sm">Get Free Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       B) HERO SECTION
+       ══════════════════════════════════════ -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-inner">
+      <!-- Left -->
+      <div>
+        <div class="hero-eyebrow" aria-label="Currently available">
+          <span class="dot" aria-hidden="true"></span>
+          Cambridge · Kitchener · Guelph
+        </div>
+        <h1>
+          Fast, Reliable HVAC<br>
+          for <span class="highlight">Ontario Families</span>
+        </h1>
+        <p class="hero-sub">
+          Furnace out? AC failing? We pick up the phone, show up fast, and fix it right — at a price you'll agree to before we start a single thing.
+        </p>
+        <div class="hero-ctas">
+          <a href="tel:2265550182" class="btn btn-primary btn-lg" aria-label="Call us now">
+            📞 Call (226) 555-0182
+          </a>
+          <a href="#quote" class="btn btn-secondary btn-lg">
+            Get Free Quote
+          </a>
+        </div>
+        <div class="hero-trust-row" role="list" aria-label="Trust indicators">
+          <div class="hero-trust-item" role="listitem"><span class="check" aria-hidden="true">✓</span> TSSA Licensed</div>
+          <div class="hero-trust-item" role="listitem"><span class="check" aria-hidden="true">✓</span> Fully Insured</div>
+          <div class="hero-trust-item" role="listitem"><span class="check" aria-hidden="true">✓</span> Upfront Pricing</div>
+          <div class="hero-trust-item" role="listitem"><span class="check" aria-hidden="true">✓</span> Family-Owned Since 2008</div>
+          <div class="hero-trust-item" role="listitem"><span class="check" aria-hidden="true">✓</span> 24/7 Emergency</div>
+        </div>
+      </div>
+      <!-- Right -->
+      <div class="hero-card" aria-label="Business stats">
+        <div class="hero-card-header">
+          <div class="rating-badge" aria-label="4.9 star rating">4.9</div>
+          <div>
+            <div class="rating-stars" aria-hidden="true">★★★★★</div>
+            <div class="rating-count">Based on 148 Google Reviews</div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-val">2<span class="unit">K+</span></div>
+            <div class="stat-label">Jobs Completed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-val">15<span class="unit">yr</span></div>
+            <div class="stat-label">In Business</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-val">&lt;1<span class="unit">hr</span></div>
+            <div class="stat-label">Avg Response</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-val">100<span class="unit">%</span></div>
+            <div class="stat-label">Satisfaction</div>
+          </div>
+        </div>
+        <div class="hero-availability">
+          <div class="avail-dot" aria-hidden="true"></div>
+          <div class="avail-text">
+            Technicians available now
+            <span>— 24/7 including holidays</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" aria-label="Credentials">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="ico">🏆</span> TSSA Certified</div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item"><span class="ico">🛡️</span> $2M Liability Coverage</div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item"><span class="ico">⚡</span> Same-Day Availability</div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item"><span class="ico">💳</span> Financing Available</div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-item"><span class="ico">♻️</span> Enbridge Rebate Approved</div>
+    </div>
+  </div>
+
+  <!-- SEASONAL PROMO -->
+  <div class="promo-banner">
+    <div class="promo-inner">
+      <div class="promo-content">
+        <div class="promo-icon" aria-hidden="true">❄️</div>
+        <div class="promo-text">
+          <strong>Spring AC Tune-Up — $89 (Save $50)</strong>
+          <span>Book before April 30 and we'll get your AC ready before the heat hits. Limited spots available.</span>
+        </div>
+      </div>
+      <a href="#quote" class="btn btn-primary">Book Now →</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       C) SERVICES SECTION
+       ══════════════════════════════════════ -->
+  <section class="section section-bg-light" id="services" aria-label="Our services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Complete HVAC Solutions</h2>
+        <p class="section-sub">From 2am emergency furnace calls to planned heat pump installations — we're the local team that handles it all.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up delay-1">
+          <div class="service-icon-wrap" aria-hidden="true">🔥</div>
+          <h3>Furnace Repair</h3>
+          <p>Same-day furnace diagnostics and repair on all major brands. We carry common parts on the truck so most repairs are done in one visit.</p>
+          <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="service-card fade-up delay-2">
+          <div class="service-icon-wrap" aria-hidden="true">❄️</div>
+          <h3>AC Installation & Repair</h3>
+          <p>Central air conditioning, ductless mini-splits, and heat pump cooling. Spring tune-ups available before the rush hits.</p>
+          <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="service-card fade-up delay-3">
+          <div class="service-icon-wrap" aria-hidden="true">🌡️</div>
+          <h3>Preventative Maintenance</h3>
+          <p>Annual tune-up plans that extend your system's life and catch issues before they become expensive emergencies.</p>
+          <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="service-card fade-up delay-1">
+          <div class="service-icon-wrap" aria-hidden="true">♻️</div>
+          <h3>Heat Pumps</h3>
+          <p>Eligible for Enbridge and government rebates. Heat and cool your home year-round with a single energy-efficient system.</p>
+          <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="service-card fade-up delay-2">
+          <div class="service-icon-wrap" aria-hidden="true">💨</div>
+          <h3>Indoor Air Quality</h3>
+          <p>HRVs, humidifiers, air purifiers, and filtration upgrades. Especially important for households with allergies or young children.</p>
+          <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="service-card fade-up delay-3">
+          <div class="service-icon-wrap" aria-hidden="true">🚿</div>
+          <h3>Water Heaters</h3>
+          <p>Traditional and tankless water heater installation, repair, and replacement. Same-day service for unexpected failures.</p>
+          <span class="service-link">Learn more <span aria-hidden="true">→</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PROCESS SECTION
+       ══════════════════════════════════════ -->
+  <section class="section" id="process" aria-label="How it works">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Fixed in 4 Simple Steps</h2>
+        <p class="section-sub">No surprises, no upsells, no confusion. Here's exactly what happens when you call.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-up delay-1">
+          <div class="step-circle" aria-label="Step 1">1</div>
+          <h4>Call or Request Online</h4>
+          <p>Phone, form, or text — we respond within minutes during business hours and immediately for emergencies.</p>
+        </div>
+        <div class="process-step fade-up delay-2">
+          <div class="step-circle" aria-label="Step 2">2</div>
+          <h4>Free Diagnosis & Quote</h4>
+          <p>Our tech arrives, diagnoses the issue, and gives you a flat upfront price. Zero obligation to proceed.</p>
+        </div>
+        <div class="process-step fade-up delay-3">
+          <div class="step-circle" aria-label="Step 3">3</div>
+          <h4>We Fix It</h4>
+          <p>Most repairs completed same visit. We carry the most common parts so you're not waiting days for a part.</p>
+        </div>
+        <div class="process-step fade-up delay-4">
+          <div class="step-circle" aria-label="Step 4">4</div>
+          <h4>We Follow Up</h4>
+          <p>We check in 24 hours after the job to confirm everything's running perfectly. We stand behind our work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GUARANTEE SECTION
+       ══════════════════════════════════════ -->
+  <div class="guarantee" aria-label="Our guarantees">
+    <div class="guarantee-inner container">
+      <div class="guarantee-badge fade-up" aria-hidden="true">
+        <div class="guarantee-circle">
+          <div class="g-icon">🏅</div>
+          <div class="g-title">100%<br>Satisfaction<br>Guaranteed</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Our Promise to You</div>
+        <h2 class="section-title light" style="margin-bottom: var(--space-8);">We Don't Leave Until You're Happy</h2>
+        <div class="guarantee-points">
+          <div class="g-point fade-up delay-1">
+            <div class="g-point-icon" aria-hidden="true">💰</div>
+            <div>
+              <h4>Upfront Flat Pricing</h4>
+              <p>You see the price. You approve it. Not a dollar more appears on your invoice. Ever.</p>
+            </div>
+          </div>
+          <div class="g-point fade-up delay-2">
+            <div class="g-point-icon" aria-hidden="true">⚡</div>
+            <div>
+              <h4>Same-Day Service</h4>
+              <p>For emergencies, we aim to be at your door within 60 minutes of your call.</p>
+            </div>
+          </div>
+          <div class="g-point fade-up delay-3">
+            <div class="g-point-icon" aria-hidden="true">🛡️</div>
+            <div>
+              <h4>2-Year Labour Warranty</h4>
+              <p>Our workmanship is guaranteed for 2 years. If something we touched fails, we come back free.</p>
+            </div>
+          </div>
+          <div class="g-point fade-up delay-4">
+            <div class="g-point-icon" aria-hidden="true">🤝</div>
+            <div>
+              <h4>No-Fix, No-Charge</h4>
+              <p>If we can't fix it, you don't pay the service fee. We back that with a written guarantee.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="certs section-bg-light">
+    <div class="certs-inner">
+      <div class="certs-label">Trusted, Licensed & Certified</div>
+      <div class="certs-row" role="list" aria-label="Certifications">
+        <div class="cert-badge" role="listitem"><span class="cert-ico">🏛️</span> TSSA Licensed</div>
+        <div class="cert-badge" role="listitem"><span class="cert-ico">🔧</span> HRAI Member</div>
+        <div class="cert-badge" role="listitem"><span class="cert-ico">♻️</span> Enbridge Certified</div>
+        <div class="cert-badge" role="listitem"><span class="cert-ico">🌿</span> Energy Star Partner</div>
+        <div class="cert-badge" role="listitem"><span class="cert-ico">🛡️</span> WSIB Insured</div>
+        <div class="cert-badge" role="listitem"><span class="cert-ico">⭐</span> BBB Accredited</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       D) REVIEWS SECTION
+       ══════════════════════════════════════ -->
+  <section class="section" id="reviews" aria-label="Customer reviews">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Real Customer Reviews</div>
+        <div class="reviews-aggregate">
+          <div class="aggregate-score" aria-label="4.9 out of 5">4.9</div>
+          <div class="aggregate-stars" aria-hidden="true">★★★★★</div>
+          <div class="aggregate-count">148 verified Google reviews</div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card fade-up delay-1">
+          <div class="review-stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-text">"Furnace died at 11pm on a Friday in January. I was panicking. Called Cambridge HVAC Pro and a technician was at my door by midnight. Fixed completely within 90 minutes. My family didn't spend a single cold night. This company is the real deal."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar" aria-hidden="true">S</div>
+            <div>
+              <div class="reviewer-name">Sarah M.</div>
+              <div class="reviewer-meta">Cambridge, ON · Google · 3 weeks ago</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card fade-up delay-2">
+          <div class="review-stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-text">"Got three quotes for a new AC installation. Cambridge HVAC Pro came in $400 lower, showed up on time, worked clean, and the tech walked me through everything afterwards. Exactly the kind of local company I want to support."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar" aria-hidden="true">D</div>
+            <div>
+              <div class="reviewer-name">Dave K.</div>
+              <div class="reviewer-meta">Kitchener, ON · Google · 1 month ago</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card fade-up delay-3">
+          <div class="review-stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-text">"Honest, punctual, and the invoice matched the quote exactly — not a dollar more. I've been through a few HVAC companies over the years and these are the only ones I trust. Half my street uses them now."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar" aria-hidden="true">L</div>
+            <div>
+              <div class="reviewer-name">Linda T.</div>
+              <div class="reviewer-meta">Guelph, ON · Google · 2 months ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FINANCING SECTION
+       ══════════════════════════════════════ -->
+  <div class="financing" aria-label="Financing options">
+    <div class="financing-inner container">
+      <div class="financing-content fade-up">
+        <div class="section-label">Flexible Financing</div>
+        <h2>Don't Let Cost Stop You From Staying Comfortable</h2>
+        <p>We partner with leading Canadian lenders so you can get your system repaired or replaced today and pay over time — with options that fit any budget.</p>
+        <a href="#quote" class="btn btn-gold">Check Financing Options →</a>
+      </div>
+      <div class="financing-options fade-up delay-2">
+        <div class="fin-option">
+          <div class="fin-option-icon" aria-hidden="true">🏦</div>
+          <div>
+            <h4>0% Interest for 12 Months</h4>
+            <p>On approved HVAC system installations. No payments, no interest for a full year.</p>
+          </div>
+        </div>
+        <div class="fin-option">
+          <div class="fin-option-icon" aria-hidden="true">📅</div>
+          <div>
+            <h4>Low Monthly Payments</h4>
+            <p>Spread the cost over 24, 36, or 60 months. Rates from 4.99% OAC.</p>
+          </div>
+        </div>
+        <div class="fin-option">
+          <div class="fin-option-icon" aria-hidden="true">✅</div>
+          <div>
+            <h4>Same-Day Approval</h4>
+            <p>Quick online application. Know your approval before we start the work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       LEAD FORM (QUOTE)
+       ══════════════════════════════════════ -->
+  <section class="lead-section" id="quote" aria-label="Get a quote">
+    <div class="lead-inner container">
+      <div class="lead-left fade-up">
+        <div class="section-label" style="color:#FF7B84;">Get In Touch</div>
+        <h2>Get Your Free Quote — We Call Back in Under 1 Hour</h2>
+        <p>Fill out the form and we'll reach out within the hour during business hours. For emergencies, call us directly — we answer 24/7, 365 days a year.</p>
+        <div class="lead-contacts">
+          <a href="tel:2265550182" class="lead-contact">
+            <div class="lead-contact-icon" aria-hidden="true">📞</div>
+            <div><strong>(226) 555-0182</strong><span>24/7 Emergency Line</span></div>
+          </a>
+          <a href="mailto:info@cambridgehvacpro.ca" class="lead-contact">
+            <div class="lead-contact-icon" aria-hidden="true">📧</div>
+            <div><strong>info@cambridgehvacpro.ca</strong><span>Email response within 2 hours</span></div>
+          </a>
+          <div class="lead-contact" aria-label="Location">
+            <div class="lead-contact-icon" aria-hidden="true">📍</div>
+            <div><strong>Cambridge, Ontario</strong><span>Serving KW, Guelph & area</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card fade-up delay-2">
+        <div class="form-card-header">
+          <div class="form-response-badge">
+            <span aria-hidden="true">⚡</span> We respond within 1 hour
+          </div>
+          <h3>Request a Free Quote</h3>
+          <p>No obligation. No spam. Just a fast, honest quote.</p>
+        </div>
+        <form id="quote-form" novalidate aria-label="Quote request form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name <span aria-hidden="true">*</span></label>
+              <input id="fname" type="text" placeholder="John" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name <span aria-hidden="true">*</span></label>
+              <input id="lname" type="text" placeholder="Smith" required autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+            <input id="phone" type="tel" placeholder="(226) 555-0000" required autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed <span aria-hidden="true">*</span></label>
+            <select id="service" required>
+              <option value="">Select a service...</option>
+              <option>Furnace Repair — Emergency</option>
+              <option>Furnace Repair — Non-urgent</option>
+              <option>Furnace Installation</option>
+              <option>AC Repair</option>
+              <option>AC Installation</option>
+              <option>Annual Tune-Up</option>
+              <option>Heat Pump</option>
+              <option>Water Heater</option>
+              <option>Not sure / Get advice</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Brief Description</label>
+            <textarea id="message" rows="3" placeholder="e.g. Furnace stopped heating overnight, error code E3..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg form-submit" id="form-btn">
+            Request Free Quote →
+          </button>
+          <p class="form-disclaimer">🔒 Your info stays private. We only contact you about your request.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       E) FAQ ACCORDION
+       ══════════════════════════════════════ -->
+  <section class="section section-bg-light" id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+        <p class="section-sub">Everything you need to know before you call.</p>
+      </div>
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq1">
+            How quickly can you respond to an emergency?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer" id="faq1" role="region">
+            <div class="faq-answer-inner">
+              For emergency calls — furnace failures, no heat, carbon monoxide concerns — we aim to have a technician at your door within 60 minutes in Cambridge, Kitchener, and Waterloo. For Guelph and surrounding areas, allow up to 90 minutes. We are available 24 hours a day, 7 days a week, 365 days a year including holidays.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq2">
+            Do you charge extra for after-hours or weekend service?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer" id="faq2" role="region">
+            <div class="faq-answer-inner">
+              We do not charge overtime rates for evenings. Weekend and statutory holiday emergency calls carry a modest premium service fee, which is always disclosed before we dispatch. You will always know the cost before we arrive.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq3">
+            What brands do you service and install?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer" id="faq3" role="region">
+            <div class="faq-answer-inner">
+              We service all major brands including Lennox, Carrier, Trane, York, Goodman, Rheem, and more. For new installations, we recommend and carry Carrier and Lennox equipment — both offer industry-leading efficiency and manufacturer warranties. We'll match the right brand and model to your home size and budget.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq4">
+            Is financing available for new HVAC equipment?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer" id="faq4" role="region">
+            <div class="faq-answer-inner">
+              Yes. We offer flexible financing through our lending partners with options including 0% interest for 12 months on approved credit, and low monthly payment plans from 4.99% OAC spread over 24, 36, or 60 months. Same-day approval is available. Ask your technician or mention it in your quote request.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq5">
+            Can I get rebates or incentives on a new system?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer" id="faq5" role="region">
+            <div class="faq-answer-inner">
+              Absolutely. Ontario homeowners may be eligible for Enbridge Home Efficiency Rebates (up to $5,000 for heat pumps), Canada Greener Homes grants, and municipal rebates depending on your area. As an Enbridge-certified contractor, we handle the paperwork and apply the rebate directly to your invoice — you don't chase it yourself.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq6">
+            What is your warranty on parts and labour?
+            <span class="faq-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-answer" id="faq6" role="region">
+            <div class="faq-answer-inner">
+              All labour is warranted for 2 years from the date of service. Parts carry manufacturer warranties ranging from 1 to 10 years depending on the component. New system installations include full manufacturer warranty registration handled by us on your behalf.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="section" aria-label="Service areas">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Coverage</div>
+        <h2 class="section-title">Proudly Serving</h2>
+        <p class="section-sub">We operate across the entire Waterloo Region and surrounding communities.</p>
+      </div>
+      <div class="area-grid fade-up delay-2" role="list" aria-label="Service locations">
+        <div class="area-chip primary" role="listitem">Cambridge</div>
+        <div class="area-chip primary" role="listitem">Kitchener</div>
+        <div class="area-chip primary" role="listitem">Waterloo</div>
+        <div class="area-chip primary" role="listitem">Guelph</div>
+        <div class="area-chip" role="listitem">Brantford</div>
+        <div class="area-chip" role="listitem">Woodstock</div>
+        <div class="area-chip" role="listitem">Stratford</div>
+        <div class="area-chip" role="listitem">Elmira</div>
+        <div class="area-chip" role="listitem">Fergus</div>
+        <div class="area-chip" role="listitem">Breslau</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo" aria-label="Cambridge HVAC Pro">
+          <div class="logo-mark" aria-hidden="true">🔥</div>
+          <div>
+            <div class="logo-name">Cambridge <em>HVAC</em> Pro</div>
+            <div class="logo-sub">Licensed & Insured · Est. 2008</div>
+          </div>
+        </a>
+        <p>Serving Cambridge, Kitchener, Waterloo, Guelph and surrounding areas since 2008. Family-owned, locally operated, and proud of it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Furnace Repair</a></li>
+          <li><a href="#">AC Repair</a></li>
+          <li><a href="#">Heat Pumps</a></li>
+          <li><a href="#">Annual Tune-Up</a></li>
+          <li><a href="#">Water Heaters</a></li>
+          <li><a href="#">Air Quality</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Financing</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:2265550182">(226) 555-0182</a></li>
+          <li><a href="mailto:info@cambridgehvacpro.ca">info@cambridgehvacpro.ca</a></li>
+          <li><a href="#">Cambridge, Ontario</a></li>
+          <li><a href="#">Mon–Fri: 7am–8pm</a></li>
+          <li><a href="#">Emergency: 24/7</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 Cambridge HVAC Pro. All rights reserved. TSSA Lic. #00000 · WSIB #000000</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- G) STICKY MOBILE CTA BAR -->
+  <div class="mobile-cta-bar" role="navigation" aria-label="Quick actions">
+    <a href="tel:2265550182" class="btn btn-primary" style="flex:1;" aria-label="Call us now">
+      📞 Call Now
+    </a>
+    <a href="#quote" class="btn btn-secondary" style="flex:1;" aria-label="Get a quote">
+      Get Quote
+    </a>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       JAVASCRIPT: Scroll Anim + Accordion + Header
+       ══════════════════════════════════════ -->
+  <script>
+    /* ─────────────────────────────────────
+       F) SCROLL ANIMATION — IntersectionObserver
+       ───────────────────────────────────── */
+    (function() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        // Make all elements immediately visible
+        document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    })();
+
+    /* ─────────────────────────────────────
+       E) FAQ ACCORDION
+       ───────────────────────────────────── */
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all others
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle clicked
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ─────────────────────────────────────
+       HEADER — Add scrolled class for shadow
+       ───────────────────────────────────── */
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* ─────────────────────────────────────
+       FORM SUBMIT
+       ───────────────────────────────────── */
+    document.getElementById('quote-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('form-btn');
+      btn.textContent = '✅ Request Sent — We\'ll call you within the hour!';
+      btn.style.background = '#1A7A4A';
+      btn.style.boxShadow = '0 8px 24px rgba(26,122,74,0.35)';
+      btn.disabled = true;
+    });
+  </script>
+
+</body>
+</html>
